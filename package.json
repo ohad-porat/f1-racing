@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "e2e"
+  ],
+  "scripts": {
+    "build:client": "yarn workspace f1-racing-client build",
+    "dev": "yarn workspace f1-racing-server dev",
+    "dev:debug": "yarn workspace f1-racing-server dev:debug",
+    "heroku-postbuild": "yarn workspace f1-racing-client build",
+    "start": "yarn workspace f1-racing-server start",
+    "dev:cypress": "yarn workspace f1-racing-server dev:e2e",
+    "e2e:open": "yarn workspace f1-racing-e2e e2e:open",
+    "e2e:run": "yarn workspace f1-racing-e2e e2e:run"
+  },
+  "engines": {
+    "node": "^14.19",
+    "yarn": "1.22.19"
+  }
+}

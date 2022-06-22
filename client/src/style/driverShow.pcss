@@ -1,0 +1,30 @@
+.driver-details {
+  @apply ml-4 my-4;
+
+  & .driver-details__header {
+    @apply mb-2 font-semibold text-xl;
+  }
+}
+
+.driver-stats__table {
+  @apply border-2 mx-auto mb-6;
+
+  & td {
+    @apply border-2 px-2;
+  }
+
+  & th {
+    @apply border-2;
+  }
+
+  & .driver-stats__column-header-info-box {
+    @apply hidden absolute bg-slate-300 leading-none p-1 border-black w-fit rounded;
+    border-width: 1px;
+    font-size: 0.6rem;
+    top: 190px;
+  }
+
+  & .driver-stats__column-header:hover .driver-stats__column-header-info-box {
+    @apply block;
+  }
+}

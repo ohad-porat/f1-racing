@@ -1,0 +1,27 @@
+.menu {
+  @apply flex flex-row py-4 bg-slate-200;
+
+  & li {
+    @apply mx-2;
+  }
+}
+
+.top-bar {
+  @apply flex flex-row items-center justify-between bg-slate-200;
+
+  & input.search-bar {
+    @apply rounded-full w-44 h-7 px-4 py-2 mr-6 text-sm;
+  }
+
+  & .search-results {
+    @apply text-sm w-48 absolute border-x border-b border-slate-400 bg-slate-50 rounded-b-lg py-1;
+
+    & .search-results__tile {
+      @apply px-2;
+    }
+
+    & .search-results__tile:hover {
+      @apply bg-slate-300;
+    }
+  }
+}
