@@ -28,7 +28,7 @@ module.exports = {
       chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css",
     }),
     new HtmlWebpackPlugin({
-      title: "Engage",
+      title: "F1 Racing",
       template: path.join(__dirname, "public/index.template.html"),
     }),
   ],
