@@ -10,7 +10,7 @@ const SearchTile: FC<{ driver: Driver; handleSelectDriver: React.MouseEventHandl
 }) => {
   return (
     <p className="search-results__tile">
-      <Link to={`/drivers/${driver.driverId}`} onClick={() => handleSelectDriver}>
+      <Link to={`/drivers/${driver.driverId}`} onClick={handleSelectDriver}>
         {driver.givenName} {driver.familyName}
       </Link>
     </p>
