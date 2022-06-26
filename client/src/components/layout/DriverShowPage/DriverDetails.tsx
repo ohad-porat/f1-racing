@@ -1,14 +1,14 @@
-import React from "react"
+import React, { FC } from "react"
 
 import useDriverDetails from "../../hooks/useDriverDetails"
 
-const DriverDetails = ({ driverId }) => {
+const DriverDetails: FC<{ driverId: string }> = ({ driverId }) => {
   const driverDetailsQuery = useDriverDetails(driverId)
   const driver = driverDetailsQuery.data
     ? driverDetailsQuery.data.MRData.DriverTable.Drivers[0]
     : {}
 
-  let fullName = ""
+  let fullName: string
   if (driverDetailsQuery.status === "success") {
     fullName = `${driver.givenName} ${driver.familyName}`
   } else if (driverDetailsQuery.status === "loading") {

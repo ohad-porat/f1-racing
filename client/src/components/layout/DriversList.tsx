@@ -1,25 +1,25 @@
-import React from "react"
+import React, { FC, ReactElement } from "react"
 
 import "../../style/driversList.pcss"
 
 import useDriversList from "../hooks/useDriversList"
 import DriverTile from "./DriverTile"
 
-const DriversList = () => {
+const DriversList: FC = () => {
   const driversListQuery = useDriversList()
   const drivers = driversListQuery.data
     ? driversListQuery.data.MRData.DriverTable.Drivers
     : []
 
-  let driverTiles = ""
+  let driverTiles: string | ReactElement[]
   if (driversListQuery.status === "success") {
     driverTiles = drivers.map((driver) => (
       <DriverTile key={driver.driverId} driver={driver} />
     ))
   } else if (driversListQuery.status === "loading") {
-    driverTiles = <h3>Loading...</h3>
+    driverTiles = "Loading..."
   } else {
-    driverTiles = <h3>Error</h3>
+    driverTiles = "Error"
   }
 
   return (
