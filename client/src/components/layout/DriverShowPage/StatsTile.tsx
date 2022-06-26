@@ -1,7 +1,9 @@
-import React from "react"
+import React, { FC } from "react"
 
-const StatsTile = ({ stats }) => {
-  const formattedAvgSpeed = stats.avgSpeed === "N/A" ? "N/A" : stats.avgSpeed.toFixed(2)
+import Stats from "../../../types/Stats"
+
+const StatsTile: FC<{ stats: Stats }> = ({ stats }) => {
+  const formattedAvgSpeed = stats.avgSpeed === 0 ? "N/A" : stats.avgSpeed.toFixed(2)
   return (
     <>
       <td>{stats.season}</td>

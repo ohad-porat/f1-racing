@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, FC, ReactElement } from "react"
 
 import { Link } from "react-router-dom"
 
@@ -7,7 +7,7 @@ import SearchTile from "./SearchTile"
 
 import "../../style/topBar.pcss"
 
-const TopBar = () => {
+const TopBar: FC = () => {
   const [searchValue, setSearchValue] = useState("")
 
   const driversListQuery = useDriversList()
@@ -31,15 +31,23 @@ const TopBar = () => {
     setSearchValue("")
   }
 
-  let searchResultsTiles = serachedDrivers.map((driver) => {
+  let searchResultsTiles: string | null | ReactElement[]
+  searchResultsTiles = serachedDrivers.map((driver) => {
     if (searchValue === "") {
       return null
     }
-    return <SearchTile driver={driver} handleSelectDriver={handleSelectDriver} />
+
+    return (
+      <SearchTile
+        key={driver.driverId}
+        driver={driver}
+        handleSelectDriver={handleSelectDriver}
+      />
+    )
   })
 
   if (searchValue.length > 0 && serachedDrivers.length === 0) {
-    searchResultsTiles = <p>No Results Found</p>
+    searchResultsTiles = "No Results Found"
   }
 
   const searchResultsClassName = searchValue !== "" ? "search-results" : ""

@@ -35,6 +35,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true,
+        },
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader",
